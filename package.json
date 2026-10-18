@@ -1,0 +1,59 @@
+{
+  "name": "dsh-prompt-enhancer",
+  "version": "0.1.0",
+  "description": "Composer prompt enhancer for DeepSeek Harness: one ✨ button rewrites the draft into a structured prompt, flags open questions below the input, follows the current session model, and can undo the rewrite; /enhance does the same rewrite as a slash command.",
+  "license": "MIT",
+  "author": "cosmoliu2002",
+  "homepage": "https://github.com/cosmoliu2002/dsh-prompt-enhancer#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cosmoliu2002/dsh-prompt-enhancer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cosmoliu2002/dsh-prompt-enhancer/issues"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "prompt",
+    "prompt-engineering",
+    "composer",
+    "ui"
+  ],
+  "type": "module",
+  "icon": "icon.svg",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE",
+    "icon.svg",
+    "locale/*.json",
+    "market/*.json"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-api-remotes",
+        "@deepseek-ai/dsh-client-connection",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-chat",
+        "@deepseek-ai/dsh-api-session-controller"
+      ]
+    }
+  }
+}

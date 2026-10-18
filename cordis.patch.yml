@@ -1,0 +1,18 @@
+# Bundle patch layer for dsh-prompt-enhancer.
+#
+# The row loads this package's main entry (`index.js`) as the Host half; the
+# package.json `dsh.client` declaration makes the web app load `./client.js`
+# as the browser half. Loader row config is passed to `apply(ctx, config)`
+# unchanged because the Host module intentionally exports no `Config` schema.
+#
+# Model route: by default NOTHING is pinned here, so the enhancement call
+# follows the current Session model (the composer model picker / the model the
+# session last used), then the agent's options, then the profile default. To
+# pin one model instead, add `provider` and `model` (both) to the row config
+# below, e.g.
+#   config:
+#     provider: deepseek-account
+#     model: deepseek-flash
+- insert:
+    - id: prompt-enhancer
+      name: dsh-prompt-enhancer
